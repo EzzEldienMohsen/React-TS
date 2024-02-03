@@ -1,4 +1,5 @@
 import { Dispatch, FC, SetStateAction, type PropsWithChildren } from 'react';
+import { CourseGoals } from '../App';
 
 // type TheProps = {
 //   title: string;
@@ -7,20 +8,8 @@ import { Dispatch, FC, SetStateAction, type PropsWithChildren } from 'react';
 interface TheProps {
   title: string;
   id: number;
-  goals: {
-    title: string;
-    id: number;
-    description: string;
-  }[];
-  setGoals: Dispatch<
-    SetStateAction<
-      {
-        title: string;
-        id: number;
-        description: string;
-      }[]
-    >
-  >;
+  goals: CourseGoals[];
+  setGoals: Dispatch<SetStateAction<CourseGoals[]>>;
 }
 type FinalProps = PropsWithChildren<TheProps>;
 
