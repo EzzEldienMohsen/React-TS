@@ -10,7 +10,7 @@ interface TheProps {
 type FinalProps = React.PropsWithChildren<TheProps>;
 const CourseGoalsList: React.FC<FinalProps> = ({ goals, setGoals }) => {
   return (
-    <ul>
+    <ul style={{ marginTop: '1rem' }}>
       {goals.map((goal) => {
         return (
           <li key={goal.id}>
