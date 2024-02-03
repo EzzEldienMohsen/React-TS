@@ -11,13 +11,16 @@ interface CourseGoals {
 export default function App() {
   const [goals, setGoals] = React.useState<CourseGoals[]>([]);
   const handleAddGoal = (): void => {
-    setGoals([
-      {
-        title: 'mastering react with ts',
-        description: 'taking it step by step',
-        id: 1,
-      },
-    ]);
+    setGoals((prevGoals) => {
+      return [
+        ...prevGoals,
+        {
+          title: 'mastering react with ts',
+          description: 'taking it step by step',
+          id: Math.random(),
+        },
+      ];
+    });
   };
   return (
     <main>
@@ -25,9 +28,22 @@ export default function App() {
         <h1>Course goals</h1>
       </Header>
       <button onClick={handleAddGoal}>add Goal</button>
-      <CourseGoal title="learn React + TS">
-        <p>doing this project to learn how to merge typescript with react</p>
-      </CourseGoal>
+      <ul>
+        {goals.map((goal) => {
+          return (
+            <li key={goal.id}>
+              <CourseGoal
+                title={goal.title}
+                id={goal.id}
+                goals={goals}
+                setGoals={setGoals}
+              >
+                <p>{goal.description}</p>
+              </CourseGoal>
+            </li>
+          );
+        })}
+      </ul>
     </main>
   );
 }
