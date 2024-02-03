@@ -15,7 +15,7 @@ export default function App() {
   return (
     <main>
       <Header image={{ src: goalImg, alt: 'course goals' }}>
-        <h1>Course goals</h1>
+        <h1>Project's goals</h1>
       </Header>
       <NewGoal setGoals={setGoals} />
       <CourseGoalsList goals={goals} setGoals={setGoals} />
