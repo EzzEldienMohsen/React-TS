@@ -1,17 +1,20 @@
+import { type PropsWithChildren } from 'react';
+
 // type TheProps = {
 //   title: string;
 //   description: string;
 // };
 interface TheProps {
   title: string;
-  description: string;
 }
-const CourseGoal = ({ title, description }: TheProps) => {
+type FinalProps = PropsWithChildren<TheProps>;
+
+const CourseGoal = ({ title, children }: FinalProps) => {
   return (
     <article>
       <div>
         <h1>{title}</h1>
-        <p>{description}</p>
+        {children}
       </div>
       <button>DELETE</button>
     </article>
