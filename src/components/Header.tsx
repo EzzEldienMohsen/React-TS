@@ -9,10 +9,10 @@ interface IMG {
 type GeneralProps = React.PropsWithChildren<IMG>;
 const Header: React.FC<GeneralProps> = ({ image, children }) => {
   return (
-    <div>
-      <img src={image.src} alt={image.alt} />
+    <header>
+      <img {...image} />
       {children}
-    </div>
+    </header>
   );
 };
 
