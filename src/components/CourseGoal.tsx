@@ -1,4 +1,4 @@
-import { type PropsWithChildren } from 'react';
+import { FC, type PropsWithChildren } from 'react';
 
 // type TheProps = {
 //   title: string;
@@ -9,7 +9,7 @@ interface TheProps {
 }
 type FinalProps = PropsWithChildren<TheProps>;
 
-const CourseGoal = ({ title, children }: FinalProps) => {
+const CourseGoal: FC<FinalProps> = ({ title, children }) => {
   return (
     <article>
       <div>
