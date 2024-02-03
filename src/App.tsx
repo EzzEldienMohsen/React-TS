@@ -1,9 +1,24 @@
-import CourseGoal from './components/CourseGoal';
+import React from 'react';
+import goalImg from './assets/goals.jpg';
+import Header from './components/Header';
+import CourseGoalsList from './components/CourseGoalsList';
+import NewGoal from './components/NewGoal';
 
+export interface CourseGoals {
+  title: string;
+  description: string;
+  id: number;
+}
 export default function App() {
+  const [goals, setGoals] = React.useState<CourseGoals[]>([]);
+
   return (
     <main>
-      <CourseGoal title="learn React + TS" description="doing  this project to learn how to merge typescript with react" />;
+      <Header image={{ src: goalImg, alt: 'course goals' }}>
+        <h1>Course goals</h1>
+      </Header>
+      <NewGoal setGoals={setGoals} />
+      <CourseGoalsList goals={goals} setGoals={setGoals} />
     </main>
   );
 }
