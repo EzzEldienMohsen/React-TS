@@ -1,5 +1,5 @@
-import { Dispatch, FC, SetStateAction, type PropsWithChildren } from 'react';
-import { CourseGoals } from '../App';
+import React from 'react';
+import { type CourseGoals } from '../App';
 
 // type TheProps = {
 //   title: string;
@@ -9,11 +9,11 @@ interface TheProps {
   title: string;
   id: number;
   goals: CourseGoals[];
-  setGoals: Dispatch<SetStateAction<CourseGoals[]>>;
+  setGoals: React.Dispatch<React.SetStateAction<CourseGoals[]>>;
 }
-type FinalProps = PropsWithChildren<TheProps>;
+type FinalProps = React.PropsWithChildren<TheProps>;
 
-const CourseGoal: FC<FinalProps> = ({
+const CourseGoal: React.FC<FinalProps> = ({
   title,
   children,
   id,

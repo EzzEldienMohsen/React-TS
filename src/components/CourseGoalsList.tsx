@@ -1,6 +1,6 @@
 import React from 'react';
 import CourseGoal from './CourseGoal';
-import { CourseGoals } from '../App';
+import { type CourseGoals } from '../App';
 
 interface TheProps {
   goals: CourseGoals[];
