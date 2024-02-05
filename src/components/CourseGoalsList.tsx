@@ -12,7 +12,7 @@ type FinalProps = React.PropsWithChildren<TheProps>;
 const CourseGoalsList: React.FC<FinalProps> = ({ goals, setGoals }) => {
   if (goals.length === 0) {
     return (
-      <InfoBox mode="hint">
+      <InfoBox mode="hint" severity="low">
         There is no project goals yet. Please add some.
       </InfoBox>
     );
@@ -20,7 +20,7 @@ const CourseGoalsList: React.FC<FinalProps> = ({ goals, setGoals }) => {
   let warningBox: React.ReactNode;
   if (goals.length >= 5) {
     warningBox = (
-      <InfoBox mode="warning">
+      <InfoBox mode="warning" severity="low">
         You have put too much project goals. try to finish this first before
         adding more.. .
       </InfoBox>

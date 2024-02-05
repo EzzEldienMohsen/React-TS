@@ -3,9 +3,10 @@ import React from 'react';
 interface Info {
   mode: 'hint' | 'warning';
   children: React.ReactNode;
+  severity: 'low' | 'medium' | 'high';
 }
 
-const InfoBox: React.FC<Info> = ({ mode, children }) => {
+const InfoBox: React.FC<Info> = ({ mode, children, severity }) => {
   if (mode === 'hint') {
     return (
       <aside className="infobox infobox-hint">
@@ -14,7 +15,7 @@ const InfoBox: React.FC<Info> = ({ mode, children }) => {
     );
   }
   return (
-    <aside className="infobox infobox-warning warning--medium">
+    <aside className={`infobox infobox-warning warning--${severity}`}>
       <h2>Warning</h2>
       <p>{children}</p>
     </aside>
