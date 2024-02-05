@@ -12,7 +12,7 @@ type FinalProps = React.PropsWithChildren<TheProps>;
 const CourseGoalsList: React.FC<FinalProps> = ({ goals, setGoals }) => {
   if (goals.length === 0) {
     return (
-      <InfoBox mode="hint" severity="low">
+      <InfoBox mode="hint">
         There is no project goals yet. Please add some.
       </InfoBox>
     );

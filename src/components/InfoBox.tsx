@@ -1,12 +1,18 @@
 import React from 'react';
-
-interface Info {
-  mode: 'hint' | 'warning';
+interface HintInfo {
+  mode: 'hint';
+  children: React.ReactNode;
+}
+interface WarningInfo {
+  mode: 'warning';
   children: React.ReactNode;
   severity: 'low' | 'medium' | 'high';
 }
 
-const InfoBox: React.FC<Info> = ({ mode, children, severity }) => {
+type Info = WarningInfo | HintInfo;
+
+const InfoBox: React.FC<Info> = (props) => {
+  const { children, mode } = props;
   if (mode === 'hint') {
     return (
       <aside className="infobox infobox-hint">
@@ -14,6 +20,7 @@ const InfoBox: React.FC<Info> = ({ mode, children, severity }) => {
       </aside>
     );
   }
+  const { severity } = props;
   return (
     <aside className={`infobox infobox-warning warning--${severity}`}>
       <h2>Warning</h2>
